@@ -1,4 +1,4 @@
-// Type definitions for twemoji 12.1
+// Type definitions for twemoji 13.0
 // Project: https://github.com/twitter/twemoji
 // Definitions by: Markus Tacker <https://github.com/coderbyheart>
 //                 Piotr Błażejewicz <https://github.com/peterblazejewicz>
