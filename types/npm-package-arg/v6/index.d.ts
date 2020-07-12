@@ -1,9 +1,9 @@
-// Type definitions for npm-package-arg 8.0
+// Type definitions for npm-package-arg 6.1
 // Project: https://github.com/npm/npm-package-arg
 // Definitions by: Melvin Groenhoff <https://github.com/mgroenhoff>
 //                 Jason <https://github.com/OiYouYeahYou>
-//                 Piotr Błażejewicz <https://github.com/peterblazejewicz>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
+// TypeScript Version: 2.1
 
 /**
  * Throws if the package name is invalid, a dist-tag is invalid or a URL's protocol is not supported.
@@ -22,7 +22,7 @@ declare namespace npa {
      * Something like: 1.2, ^1.7.17, http://x.com/foo.tgz, git+https://github.com/user/foo, bitbucket:user/foo, file:foo.tar.gz or file:../foo/bar/. If not included then the default is latest.
      * @param where Optionally the path to resolve file paths relative to. Defaults to process.cwd()
      */
-    function resolve(name: string | null, spec: string, where?: string):
+    function resolve(name: string, spec: string, where?: string):
         FileResult |
         HostedGitResult |
         URLResult |
@@ -39,7 +39,6 @@ declare namespace npa {
          * * file - A local .tar.gz, .tar or .tgz file.
          * * directory - A local directory.
          * * remote - An http url (presumably to a tgz)
-         * * alias - NPM registry alias
          */
         type:
             | "git"
@@ -83,10 +82,6 @@ declare namespace npa {
 
         /** The original un-modified string that was provided. If called as npa.resolve(name, spec) then this will be name + '@' + spec. */
         raw: string;
-
-        setName(name: string): void;
-        toString(): string;
-        toJSON(): string;
     }
 
     interface FileResult extends Result {
