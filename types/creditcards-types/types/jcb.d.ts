@@ -1,8 +1,9 @@
+import Type = require('../type');
 
-var Type = require('../type')
+declare const JCB: Type<{
+    name: 'JCB';
+    pattern: RegExp;
+    eagerPattern: RegExp;
+}>;
 
-module.exports = Type({
-  name: 'JCB',
-  pattern: /^35\d{14}$/,
-  eagerPattern: /^35/
-})
+export = JCB;

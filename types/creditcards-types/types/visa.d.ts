@@ -1,5 +1,11 @@
-import CardType = require('../type');
+import Type = require('../type');
 
-declare const visa: CardType;
+declare const Visa: Type<{
+    name: 'Visa';
+    digits: [13, 19];
+    pattern: RegExp;
+    eagerPattern: RegExp;
+    groupPattern: RegExp;
+}>;
 
-export = visa;
+export = Visa;

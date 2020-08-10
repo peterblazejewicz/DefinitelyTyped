@@ -1,9 +1,9 @@
-'use strict'
+import Type = require('../type');
 
-var Type = require('../type')
+declare const Forbrugsforeningen: Type<{
+    name: 'Forbrugsforeningen';
+    pattern: RegExp;
+    eagerPattern: RegExp;
+}>;
 
-module.exports = Type({
-  name: 'Forbrugsforeningen',
-  pattern: /^600722\d{10}$/,
-  eagerPattern: /^600/
-})
+export = Forbrugsforeningen;

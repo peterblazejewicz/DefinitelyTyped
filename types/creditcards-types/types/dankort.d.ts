@@ -1,9 +1,9 @@
-'use strict'
+import Type = require('../type');
 
-var Type = require('../type')
+declare const Dankort: Type<{
+    name: 'Dankort';
+    pattern: RegExp;
+    eagerPattern: RegExp;
+}>;
 
-module.exports = Type({
-  name: 'Dankort',
-  pattern: /^5019\d{12}$/,
-  eagerPattern: /^5019/
-})
+export = Dankort;

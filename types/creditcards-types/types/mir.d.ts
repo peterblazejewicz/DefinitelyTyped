@@ -1,10 +1,10 @@
-'use strict'
+import Type = require('../type');
 
-var Type = require('../type')
+declare const Mir: Type<{
+    name: 'Mir';
+    pattern: RegExp;
+    eagerPattern: RegExp;
+    groupPattern: RegExp;
+}>;
 
-module.exports = Type({
-  name: 'Mir',
-  pattern: /^220[0-4]\d{12}$/,
-  eagerPattern: /^220[0-4]/,
-  groupPattern: /(\d{1,4})(\d{1,4})?(\d{1,4})?(\d{1,4})?(\d{1,3})?/
-})
+export = Mir;

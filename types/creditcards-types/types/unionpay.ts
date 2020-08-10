@@ -1,10 +1,11 @@
 import Type = require('../type');
 
-declare const Elo: Type<{
-    name: 'Elo';
+declare const UnionPay: Type<{
+    name: 'UnionPay';
     pattern: RegExp;
     eagerPattern: RegExp;
     groupPattern: RegExp;
+    luhn: false;
 }>;
 
-export = Elo;
+export = UnionPay;

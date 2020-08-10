@@ -1,8 +1,9 @@
+import Type = require('../type');
 
-var Type = require('../type')
+declare const Troy: Type<{
+    name: 'Troy';
+    pattern: RegExp;
+    eagerPattern: RegExp;
+}>;
 
-module.exports = Type({
-  name: 'Troy',
-  pattern: /^9792\d{12}$/,
-  eagerPattern: /^9792/
-}
+export = Troy;
