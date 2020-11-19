@@ -1,6 +1,7 @@
 // Type definitions for browserslist-useragent 3.0
 // Project: https://github.com/browserslist/browserslist-useragent
 // Definitions by: nju33 <https://github.com/nju33>
+//                 Piotr Błażejewicz <https://github.com/peterblazejewicz>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 export interface ResolvedUserAgent {
@@ -10,7 +11,14 @@ export interface ResolvedUserAgent {
 
 export interface BrowserslistUseragentOptions {
     browsers?: string[];
+    /**
+     * @default `production`
+     */
     env?: string;
+    /**
+     * @default `process.cwd()`
+     */
+    path?: string;
     ignorePatch?: boolean;
     ignoreMinor?: boolean;
     allowHigherVersions?: boolean;
