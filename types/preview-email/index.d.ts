@@ -1,4 +1,4 @@
-// Type definitions for preview-email 2.0
+// Type definitions for preview-email 3.0
 // Project: https://github.com/niftylettuce/preview-email
 // Definitions by: Piotr Błażejewicz <https://github.com/peterblazejewicz>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
@@ -11,6 +11,7 @@ import { Options as NodeMailerOptions } from 'nodemailer/lib/mailer';
  *
  * The function `previewEmail` returns a `Promise` which resolves with a URL.
  * We automatically open the browser to this URL unless you specify options.open as false
+ * @async
  */
 declare function previewEmail(message: NodeMailerOptions, options?: previewEmail.Options): Promise<string>;
 
