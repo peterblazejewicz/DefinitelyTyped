@@ -1,4 +1,5 @@
-import CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+import CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+import { Compiler } from 'webpack';
 
 module.exports = {
     optimization: {
@@ -12,20 +13,20 @@ module.exports = {
                 exclude: /\/excludes/,
                 cache: true,
                 cacheKeys: (defaultCacheKeys, file) => {
-                    defaultCacheKeys.myCacheKey = "myCacheKeyValue";
+                    defaultCacheKeys.myCacheKey = 'myCacheKeyValue';
                     return defaultCacheKeys;
                 },
                 minimizerOptions: {
                     preset: [
-                        "default",
+                        'default',
                         {
                             discardComments: { removeAll: true },
                         },
                     ],
                     processorOptions: {
-                        parser: "parser",
-                        stringifier: "parse",
-                        syntax: "syntax",
+                        parser: 'parser',
+                        stringifier: 'parse',
+                        syntax: 'syntax',
                     },
                 },
                 parallel: true,
@@ -52,15 +53,15 @@ module.exports = {
                 minimizerOptions: [
                     {
                         preset: [
-                            "default",
+                            'default',
                             {
                                 discardComments: { removeAll: true },
                             },
                         ],
                         processorOptions: {
-                            parser: "parser",
-                            stringifier: "parse",
-                            syntax: "syntax",
+                            parser: 'parser',
+                            stringifier: 'parse',
+                            syntax: 'syntax',
                         },
                     },
                 ],
@@ -74,9 +75,20 @@ module.exports = {
                     },
                 ],
             }),
-            new CssMinimizerPlugin({minify: CssMinimizerPlugin.cssnanoMinify}),
-            new CssMinimizerPlugin({minify: CssMinimizerPlugin.cssoMinify}),
-            new CssMinimizerPlugin({minify: CssMinimizerPlugin.cleanCssMinify}),
+            new CssMinimizerPlugin({ minify: CssMinimizerPlugin.cssnanoMinify }),
+            new CssMinimizerPlugin({ minify: CssMinimizerPlugin.cssoMinify }),
+            new CssMinimizerPlugin({ minify: CssMinimizerPlugin.cleanCssMinify }),
+            new CssMinimizerPlugin({
+                minify: CssMinimizerPlugin.esbuildMinify,
+            }),
         ],
     },
 };
+
+declare var compiler: Compiler;
+
+{
+    new CssMinimizerPlugin({
+        minify: CssMinimizerPlugin.esbuildMinify,
+    }).apply(compiler);
+}
