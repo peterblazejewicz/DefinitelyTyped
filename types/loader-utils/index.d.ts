@@ -1,11 +1,10 @@
-// Type definitions for loader-utils 2.0
+// Type definitions for loader-utils 3.1
 // Project: https://github.com/webpack/loader-utils#readme
 // Definitions by: Gyusun Yeom <https://github.com/Perlmint>
 //                 Totooria Hyperion <https://github.com/TotooriaHyperion>
 //                 Piotr Błażejewicz <https://github.com/peterblazejewicz>
 //                 Jesse Katsumata <https://github.com/Naturalclar>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
-// TypeScript Version: 3.7
 
 /// <reference types="node" />
 
