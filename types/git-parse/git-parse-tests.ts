@@ -1,16 +1,15 @@
-/// <reference types="node" />
-
 import { gitToJs, checkoutCommit, gitDiff, gitPull } from 'git-parse';
 
 const repoPath = '.';
-const commitsPromise = gitToJs(repoPath);
-
-commitsPromise.then(commits => console.log(JSON.stringify(commits, null, 2)));
+// $ExpectType Promise<GitCommit[]>
+gitToJs(repoPath);
 
 async () => {
     try {
+        // $ExpectType void
         await checkoutCommit('.', 'invalidHash');
-        const parsedRepo = await gitToJs(repoPath);
+        // $ExpectType GitCommit[]
+        await gitToJs(repoPath);
     } catch (e) {
         //
     }
@@ -20,11 +19,14 @@ gitToJs('/some_crazy_directory_that_does_not_exist/asdfasdfasdfasdfxxxx').catch(
     //
 });
 gitToJs(repoPath).then(data => {
-    console.log(data);
+    // $ExpectType GitCommit[]
+    data;
 });
 
-gitDiff(repoPath, '3bbdbc5').then(diff => console.log(diff));
+gitDiff(repoPath, '3bbdbc5').then(diff => {
+    diff; // $ExpectType string
+});
 
 gitPull(repoPath)
-    .then(() => console.log('Done'))
-    .catch(err => console.log(err));
+    .then(() => {})
+    .catch(err => {});

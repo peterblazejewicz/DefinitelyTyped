@@ -1,4 +1,4 @@
-// Type definitions for git-parse 1.0
+// Type definitions for git-parse 2.1
 // Project: https://github.com/wayfair/git-parse#readme
 // Definitions by: Piotr Błażejewicz <https://github.com/peterblazejewicz>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
@@ -13,7 +13,7 @@ export function gitToJs(repoPath: string, options?: GitToJsOptions): Promise<Git
  * Checks out a commit given its repo and hash.
  * @async
  */
-export function checkoutCommit(pathToRepo: string, hash: string, options?: CheckoutCommmitOptions): Promise<void>;
+export function checkoutCommit(pathToRepo: string, hash: string, options?: CheckoutCommitOptions): Promise<void>;
 
 /**
  * Pulls a repo given its path.
@@ -59,6 +59,6 @@ export interface GitToJsOptions {
     sinceCommit?: string | undefined;
 }
 
-export interface CheckoutCommmitOptions {
+export interface CheckoutCommitOptions {
     force?: boolean | undefined;
 }
